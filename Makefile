@@ -16,7 +16,7 @@ LIBS += -lpthread -lgflags -lglog \
         -ltcmalloc_minimal -lunwind \
         -llbfgs -lallreduce
 
-LIBOBJECTS = 
+LIBOBJECTS = src/sample_set.o
 
 TESTS = 
 
