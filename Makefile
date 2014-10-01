@@ -16,7 +16,9 @@ LIBS += -lpthread -lgflags -lglog \
         -ltcmalloc_minimal -lunwind \
         -llbfgs -lallreduce
 
-LIBOBJECTS = src/sample_set.o
+LIBOBJECTS = src/sample_set.o \
+			 src/admm_optimizer.o \
+			 src/lr/admm_lrl2.o
 
 TESTS = 
 
