@@ -33,7 +33,7 @@ clean:
 	rm -rf $(TESTOBJECTS) $(LIBOBJECTS) all_test admm_main
 
 lint:
-	python cpplint.py  src/*.h src/*.cc src/*.cpp
+	python cpplint.py  src/*.{h,cc} src/*.cpp src/lr/*.{h,cc}
 
 program: $(LIBOBJECTS) src/admm_main.cpp
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(LIBOBJECTS) src/admm_main.cpp -o admm_main $(LIBS)
