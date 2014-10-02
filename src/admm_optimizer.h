@@ -1,13 +1,13 @@
-#ifndef _ADMM_ADMM_OPTIMIZER_
-#define _ADMM_ADMM_OPTIMIZER_
+// Copyright 2014. Gang Bai <me@baigang.net>
+#ifndef SRC_ADMM_OPTIMIZER_H_
+#define SRC_ADMM_OPTIMIZER_H_
 #include <vector>
-#include <lbfgs.h>
+#include <lbfgs.h>  // NOLINT
 
 namespace admm {
 
 class ADMMOptimizer {
  public:
-
   virtual void Run(int num_iterations);
 
   /** Distributed update of parameter X. */
@@ -25,12 +25,14 @@ class ADMMOptimizer {
   explicit ADMMOptimizer(int n)
       : feature_dimension_(n) {}
   virtual ~ADMMOptimizer();
+
  protected:
   int feature_dimension_;
   std::vector<float> x_;
   std::vector<float> y_;
   std::vector<float> z_;
-  std::vector<float> rho_;
+  float rho_;
+  float lambda_;
 
  private:
   ADMMOptimizer();
@@ -40,5 +42,5 @@ class ADMMOptimizer {
 
 }  // namespace admm
 
-#endif  // _ADMM_ADMM_OPTIMIZER_
+#endif  // SRC_ADMM_OPTIMIZER_H_
 
