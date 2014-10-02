@@ -8,7 +8,11 @@ namespace admm {
 
 class ADMMOptimizer {
  public:
-  virtual void Run(int num_iterations);
+  void Run(int num_iterations);
+
+  inline const std::vector<float>& Results() const {
+    return z_;
+  }
 
   /** Distributed update of parameter X. */
   virtual void UpdateX() = 0;
