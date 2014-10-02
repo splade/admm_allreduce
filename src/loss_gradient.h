@@ -8,12 +8,11 @@ namespace admm {
 
 class LossGradient {
  public:
-  /** Evaluating the loss function. */
-  virtual lbfgsfloatval_t Loss(const lbfgsfloatval_t* x) = 0;
-
-  /** Get the gradient at a specific point x with a step. */
-  virtual void Gradient(const lbfgsfloatval_t* x, const int n,
-                const lbfgsfloatval_t step, lbfgsfloatval_t* g) = 0;
+  /** Evaluating the loss function and the gradient
+   * at a specific point x with a step.
+   */
+  virtual lbfgsfloatval_t LossAndGradient(const lbfgsfloatval_t* x,
+    const int n, const lbfgsfloatval_t step, lbfgsfloatval_t* g) = 0;
 
   inline void SetLBFGSEvaluateFunc(lbfgs_evaluate_t evaluate_func) {
     evaluate_func_ = evaluate_func;

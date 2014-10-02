@@ -1,5 +1,6 @@
-#ifndef _ADMM_LR_LRL2ADMM_H_
-#define _ADMM_LR_LRL2ADMM_H_
+// Copyright 2014. Gang Bai <me@baigang.net>
+#ifndef SRC_LR_ADMM_LRL2_H_
+#define SRC_LR_ADMM_LRL2_H_
 
 #include "../admm_optimizer.h"
 #include "../loss_gradient.h"
@@ -17,9 +18,9 @@ class ADMMLRL2
     : public LossGradient
     , public ADMMOptimizer {
  public:
-  virtual lbfgsfloatval_t Loss(const lbfgsfloatval_t* x, const int n);
-  virtual void Gradient(const lbfgsfloatval_t* x, const int n,
-                const lbfgsfloatval_t step, lbfgsfloatval_t* g);
+  virtual lbfgsfloatval_t LossAndGradient(
+    const lbfgsfloatval_t* x, const int n,
+    const lbfgsfloatval_t step, lbfgsfloatval_t* g);
 
   /** for callback in lbfgs */
   static lbfgsfloatval_t Evaluate(void *instance,
@@ -62,5 +63,5 @@ class ADMMLRL2
 }  // namespace lr
 }  // namespace admm
 
-#endif  // _ADMM_LR_LRL2ADMM_H_
+#endif  // SRC_LR_ADMM_LRL2_H_
 
