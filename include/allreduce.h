@@ -7,7 +7,9 @@ license as described in the file LICENSE.
 
 #ifndef ALLREDUCE_H
 #define ALLREDUCE_H
+#include <cstring>
 #include <string>
+#include <iostream>
 #ifdef _WIN32
 #include <WinSock2.h>
 #include <WS2tcpip.h>
