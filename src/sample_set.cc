@@ -1,10 +1,11 @@
-#include <istream>
+// Copyright 2014. Gang Bai <me@baigang.net>
+#include <istream>  // NOLINT
 #include <string>
-#include "sample_set.h"
-#include <glog/logging.h>
+#include "sample_set.h"  // NOLINT
+#include <glog/logging.h>  // NOLINT
 
 namespace admm {
-SampleSet::SampleSet() 
+SampleSet::SampleSet()
   : use_01_label_(false)
   , num_skipped_lines_(0)
   , num_parsed_lines_(0) {
@@ -13,13 +14,14 @@ SampleSet::SampleSet()
 SampleSet::~SampleSet() {
 }
 
-// XXX(baigang): dense feature vectors only. Should be supporting sparse features.
-bool SampleSet::ParseSamples(std::istream& input) {
+// XXX(baigang): dense feature vectors only.
+// Should be supporting sparse features.
+bool SampleSet::ParseSamples(std::istream& input) {  // NOLINT
   std::string buf = new char[32768];
   while (input) {
     getline(input, buf);
     if (buf.length() < 1 || buf[0] == '#') {
-      ++ num_skipped_lines_;
+      ++num_skipped_lines_;
       continue;
     }
     Sample sample;

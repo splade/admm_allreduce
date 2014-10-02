@@ -1,13 +1,13 @@
-#ifndef _ADMM_SAMPLE_SET_H_
-#define _ADMM_SAMPLE_SET_H_
-#include <istream>
+// Copyright 2014. Gang Bai <me@baigang.net>
+#ifndef SRC_SAMPLE_SET_H_
+#define SRC_SAMPLE_SET_H_
+#include <istream>  // NOLINT
 #include <vector>
 
 namespace admm {
 
 class SampleSet {
  public:
-
   class Sample {
    public:
     float label;
@@ -15,16 +15,17 @@ class SampleSet {
     std::vector<float> features;
   };
 
-  bool ParseSamples(std::istream& input);
+  bool ParseSamples(std::istream& input);  // NOLINT
 
   const std::vector<Sample>& Samples() const {return samples_;}
   std::vector<Sample>* MutateSamples() {return &samples_;}
 
   bool use_01_label() const {return use_01_label_;}
   void set_use_01_label(bool set) {use_01_label_ = set;}
-  
+
   SampleSet();
   virtual ~SampleSet();
+
  protected:
   std::vector<Sample> samples_;
   bool use_01_label_;
@@ -34,5 +35,5 @@ class SampleSet {
 
 }  // namespace admm
 
-#endif  // _ADMM_SAMPLE_SET_H_
+#endif  // SRC_SAMPLE_SET_H_
 
