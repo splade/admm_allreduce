@@ -9,21 +9,12 @@ namespace admm {
 class LossGradient {
  public:
   /** Evaluating the loss function and the gradient
-   * at a specific point x with a step.
+   *  at a specific point x with a step.
    */
   virtual lbfgsfloatval_t LossAndGradient(const lbfgsfloatval_t* x,
     const int n, const lbfgsfloatval_t step, lbfgsfloatval_t* g) = 0;
 
-  inline void SetLBFGSEvaluateFunc(lbfgs_evaluate_t evaluate_func) {
-    evaluate_func_ = evaluate_func;
-  }
-  inline void SetLBFGSProgressFunc(lbfgs_progress_t progress_func) {
-    progress_func_ = progress_func;
-  }
-
  protected:
-  lbfgs_progress_t progress_func_;
-  lbfgs_evaluate_t evaluate_func_;
 };
 
 }  // namespace admm
