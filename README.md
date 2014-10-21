@@ -1,5 +1,6 @@
 admm_allreduce
 ==============
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/BaiGang/admm_allreduce?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ADMM optimizer on Apache Hadoop with allReduce.
 
